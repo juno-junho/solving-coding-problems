@@ -3,9 +3,18 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/baekjoon/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/baekjoon/if" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/baekjoon/input" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/baekjoon/input/if" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="TemplatesService">
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/baekjoon/src/if" />
+      </list>
+    </option>
   </component>
 </module>

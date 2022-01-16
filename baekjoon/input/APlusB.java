@@ -1,5 +1,3 @@
-package input;
-
 import java.util.Scanner;
 
 public class APlusB {
@@ -9,5 +7,9 @@ public class APlusB {
         int b= sc.nextInt();
 
         System.out.println(a+b);
+        System.out.println(a-b);
+        System.out.println(a*b);
+        System.out.println(a/b);
+        System.out.println(a%b);
     }
 }
