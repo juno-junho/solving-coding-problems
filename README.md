@@ -6,8 +6,6 @@ This repository is where I learn about data structure &amp; algorithms for prepa
 <br>
 
 
-
-
 - [x] Input 
 - [x] If statment   
 - [ ] For statment    
