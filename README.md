@@ -16,6 +16,16 @@ This repository is where I learn about data structure &amp; algorithms for prepa
  -[ ] Recursion
  -[ ] Brute Force
  -[ ] Sorting
+ 
+ - [ ] Mercury
+- [x] Venus
+- [x] Earth (Orbit/Moon)
+- [x] Mars
+- [ ] Jupiter
+- [ ] Saturn
+- [ ] Uranus
+- [ ] Neptune
+- [ ] Comet Haley
 
 
 
