@@ -5,7 +5,7 @@ This repository is where I learn about data structure &amp; algorithms for prepa
    > https://www.acmicpc.net/step
    > - [x] Input
    > - [x] If statment
-   > - [ ] For statment
+   > - [x] For statment
    > - [ ] While statment
    > - [ ] Array
    > - [ ] Function
