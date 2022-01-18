@@ -6,7 +6,7 @@ This repository is where I learn about data structure &amp; algorithms for prepa
    > - [x] Input
    > - [x] If statment
    > - [x] For statment
-   > - [ ] While statment
+   > - [x] While statment
    > - [ ] Array
    > - [ ] Function
    > - [ ] String
