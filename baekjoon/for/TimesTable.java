@@ -10,8 +10,9 @@ public class TimesTable {
 //        IntStream.range(1,10).forEach(s -> System.out.println(num + " * " + s + " = " + s*num));
 
         // 2. for문 이융
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             System.out.println(num + " * " + i + " = " + num*i);
         }
     }
 }
+
