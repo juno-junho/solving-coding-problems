@@ -7,7 +7,7 @@ This repository is where I learn about data structure &amp; algorithms for prepa
    > - [x] If statment
    > - [x] For statment
    > - [x] While statment
-   > - [ ] Array
+   > - [x] Array
    > - [ ] Function
    > - [ ] String
    > - [ ] Math Fundamentals 1
