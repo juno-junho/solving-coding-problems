@@ -1,10 +1,9 @@
 import java.util.Scanner;
 
-public class Budda {
+public class Ascii {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int year = sc.nextInt();
-        System.out.println(year - 543);
+        int input = sc.next().charAt(0);
+        System.out.println(input);
     }
 }
-
