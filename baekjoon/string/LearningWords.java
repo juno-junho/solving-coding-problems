@@ -15,7 +15,7 @@ public class LearningWords {
 
         String[] stringArray = word.split("");
         Set<String> stringSet = Stream.of(stringArray).collect(Collectors.toSet());
-        stringSet.forEach(System.out::println);
+        stringSet.forEach(soutc1qq);
         HashMap<String, Integer> stringMap = new HashMap<>();
         for (String alphabet:stringSet) {
             int count = 0;
