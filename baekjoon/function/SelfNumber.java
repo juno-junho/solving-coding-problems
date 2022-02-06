@@ -8,7 +8,7 @@ public class SelfNumber {
         // 재귀로 1 넣어 수열 만든다 해도 self number를 제외한 모든 값들이 구해지는 것은 아니다.
         // self number를 구하는것은 여집합으로 구하는 방법 말고는 없지 않은가.
         // 
-        // 10000 까지의 array에서
+        // `10000 까지의 array에서
 //        1 2 4 8 ... d
         // 결국 일일히 다 구해야한다. 어떤 수가 d(n)을 통해서 나올수가 없는 수가 바로 self number이다.
         // 1부터 10000까지 배열 중에 dn(i)값과 일치하는 것이 있으면 그 값을 삭제한다.
@@ -73,7 +73,7 @@ public class SelfNumber {
  * 			number = number/10;	// 10을 나누어 첫 째          없앤다
  * 		}
  *
- * 		retu     sum;
+ * 		return    sum;
  * 	}
  * }
  */
