@@ -18,6 +18,7 @@ public class BigONotation {
         System.out.println("Call to find Nemo took " + (t1-t0) +
                 " milliseconds");
     }
+
     // O(1) --> Constant Time
     public void compressBoxes(String[] boxes) {
         System.out.println(boxes[0]);
