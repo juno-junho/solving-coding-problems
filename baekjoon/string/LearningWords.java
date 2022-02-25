@@ -4,8 +4,8 @@ import java.util.stream.Stream;
 
 public class LearningWords {
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        String word = sc.next().toLowerCase();
+        Scanner sc = new Scanner(System.in);
+        String word = sc.next().toLowerCase();
 //        // 배열에서 가장 많은 값 출력하는 방법
 //
 //        // Optional로 받은 다음 여러개일 경우 ? orElse()로 ? 출력

@@ -2,6 +2,7 @@ package recursion;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Recursion {
 //    public void inception(){
@@ -11,7 +12,7 @@ public class Recursion {
     // O(n)
     public int factorialRecursive(int number) {
         // base case
-        if (number == 1) {
+        if (number <= 1) {
             return 1;
         }
         // recursive case
@@ -66,7 +67,7 @@ public class Recursion {
 
     public static void main(String[] args) {
         Recursion recursion = new Recursion();
-        System.out.println(recursion.factorialRecursive(3));
+        System.out.println(recursion.factorialRecursive(0));
         System.out.println(recursion.factorialIterative(2));
 
         //fibonacci
@@ -74,5 +75,9 @@ public class Recursion {
         System.out.println(recursion.fibonacciIterative(8));
 
 //        recursion.inception();
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println(recursion.factorialRecursive(sc.nextInt()));
+
     }
 }
