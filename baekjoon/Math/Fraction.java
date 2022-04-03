@@ -17,22 +17,24 @@ public class Fraction {
         int count = 0;
         int fractionNum = 0;
         while (true){
-            if (count*(count+1)/2 < x && (count+1)*(count+2)/2 >x){
+            if (count*(count+1)/2 < x && (count+1)*(count+2)/2 >=x){
                 fractionNum = count+1;
-                x -= count * (count + 1) / 2;
+                x -= (count * (count + 1) / 2 )+ 1; // 몇칸 이동해야하는지
                 break;
             }
             count++;
         }
-        System.out.println(count);
+//        System.out.println(count);
+//        System.out.println(x);
+//        System.out.println(fractionNum);
+//        System.out.println("-------------");
        if (fractionNum % 2 == 0){
-           top = fractionNum -x;
-           bottom = x;
-       }else {
            bottom = fractionNum -x;
-           top = x;
+           top = x+1;
+       }else {
+           top = fractionNum -x;
+           bottom = x+1;
        }
-        System.out.println(top);
-        System.out.println(bottom);
+        System.out.println(top +"/"+bottom);
     }
 }
