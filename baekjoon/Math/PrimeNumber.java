@@ -24,7 +24,7 @@ public class PrimeNumber {
 //            IntStream.rangeClosed(m, n).filter(PrimeNumber::isPrime).forEach(System.out::println);
 //        }
 
-        // array사용
+        // List사용
         List<Integer> primeList = new ArrayList<Integer>();
         while (m <=n){
             if (PrimeNumber.isPrime(m)){
@@ -33,9 +33,11 @@ public class PrimeNumber {
             m++;
         }
         int sum = 0;
+        // list 돌면서 prime number 계속 더해주기
         for (int num:primeList) {
             sum += num;
         }
+        // 출력
         if (sum == 0) System.out.println(-1);
         else {
             System.out.println(sum);
