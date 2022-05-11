@@ -12,6 +12,7 @@
       <sourceFolder url="file://$MODULE_DIR$/baekjoon/string" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/study/algorithms" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/baekjoon/Math" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/baekjoon/brute_force" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/baekjoon/input/if" />
     </content>
     <orderEntry type="inheritedJdk" />
