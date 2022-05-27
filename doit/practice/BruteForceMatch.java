@@ -4,13 +4,13 @@ public class BruteForceMatch {
     public static int matching(String text, String pattern){
         int textIndex = 0;
         int patternIndex = 0;
-        // 인덱스가 문자길이랑 같아지면 탈출.
-        while (textIndex != text.length() && patternIndex != pattern.length()){
+        // 인덱스가 문자길이랑 같아지면 탈출. (text나 pattern에서 검사후 index가 증가하는데, text, pattern 증 index와 길이가 같아지면 탈출)
+        while (textIndex != text.length() && patternIndex != pattern.length()){ //
             if (text.charAt(textIndex) == pattern.charAt(patternIndex)){
                 textIndex++;
                 patternIndex++;
             } else {
-                textIndex = textIndex - patternIndex + 1;
+                textIndex = textIndex - patternIndex + 1; // 다르므로 1 textIndex를 시작했던 곳에서 +1 증가 시킴.
                 patternIndex = 0;
             }
         }
