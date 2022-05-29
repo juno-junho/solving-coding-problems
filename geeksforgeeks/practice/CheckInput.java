@@ -11,7 +11,7 @@ public class CheckInput {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
 
-        if (!isNumber(str)) System.out.println("Integer");
+        if (isNumber(str)) System.out.println("Integer");
         else System.out.println("String");
     }
 }
