@@ -20,6 +20,8 @@ public class CharacterSorting {
         }
         StringBuilder result = new StringBuilder();
         // 26번을 돌면서, 그 숫자에 alphabet[i]에 있는 수 만큼 character를 append.
+
+        // O(MAX_CHAR * n) -> O(n)
         for (int i = 0; i < alphabet.length ; i++) {
             for (int j = 0; j < alphabet[i] ; j++) {
                 result.append((char)('a' + i));
