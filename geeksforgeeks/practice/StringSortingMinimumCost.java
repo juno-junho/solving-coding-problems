@@ -33,6 +33,7 @@ public class StringSortingMinimumCost {
         }
         System.out.println("revStr =  " + Arrays.toString(revStr));
         System.out.println("arr = " + Arrays.toString(arr));
+
         String curStr = "";
         int curCost;
 
