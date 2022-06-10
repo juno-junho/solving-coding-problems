@@ -61,7 +61,7 @@ public class StringRotation {
         System.out.println("sb = " + sb);
         //sb size는 2n
         for (int i = 0; i < str.length() ; i++) {
-            System.out.println(sb.substring(i,i+5));
+            System.out.println(sb.substring(i,i+(str.length())));
         }
     }
     public static void main(String[] args) {
