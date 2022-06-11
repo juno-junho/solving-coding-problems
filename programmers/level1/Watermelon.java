@@ -2,7 +2,7 @@ public class Watermelon {
     public static String solution(int n) {
         //다른 풀이 :
 //        return new String(new char[n/2 + 1]).replace("/0","수박").substring(0,n);
-
+        // new char[] 통해서 char 배열 생성하면 default 값은 "\0" or "\u0000"임.
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n ; i++) {
             if (i % 2 ==0) sb.append("수");
