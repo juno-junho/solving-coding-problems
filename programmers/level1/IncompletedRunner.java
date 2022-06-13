@@ -1,6 +1,6 @@
 import java.util.*;
 import java.util.stream.Collectors;
-
+// 다시 풀어보고, 다시 이해하기.
 public class IncompletedRunner {
 // list.remove()는 처음 요소 하나만 제거 한다. 모두 제거. foreach안에서 remove같은 함수 쓰면 ConcurrentModificationException 발생.
     // list에서 중복을 제거하는 방법 : 1.set 이용, 2.distinct() 이용
@@ -22,16 +22,26 @@ public class IncompletedRunner {
 //        return list.get(0);
         // 위에 stream은 동명이인, 즉, participant와 completion을 1:1로 지우지 못함.
 //
+        List<String> participantList = Arrays.stream(participant).sorted().collect(Collectors.toList());
+        List<String> completionList = Arrays.stream(completion).sorted().collect(Collectors.toList());
+        System.out.println("participant : "+participantList);
+        System.out.println("completion : " + completionList);
+        int index = 0;
+        for (int i = 0; i < completionList.size() ; i++) {
+            if (!participantList.get(i).equals(completionList.get(i))) {
 
-        Map<Integer,String> map = new HashMap<>();
-
-        return "a";
+                index = i;
+                break;
+            }
+            else index = participantList.size()-1;
+        }
+        return participantList.get(index);
     }
 
     public static void main(String[] args) {
-        String[] participant = {"mislav", "stanko", "mislav", "ana"};
-        String[] completion = {"stanko", "ana", "mislav"};
-        solution(participant, completion);
+        String[] participant = {"marina", "josipa", "nikola", "vinko", "filipa"};
+        String[] completion = {"josipa", "filipa", "marina", "nikola"};
+        System.out.println(solution(participant, completion));
 
 
     }
