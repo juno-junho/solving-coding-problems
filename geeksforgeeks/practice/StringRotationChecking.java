@@ -4,7 +4,7 @@ public class StringRotationChecking {  /* Function checks if passed strings (str
         // There lengths must be same and str2 must be
         // a substring of str1 concatenated with str1.
         return (str1.length() == str2.length()) &&
-                ((str1 + str1).indexOf(str2) != -1);
+                ((str1 + str1).contains(str2));
     }
 
     public static void main(String[] args){
