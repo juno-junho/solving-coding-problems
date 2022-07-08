@@ -1,7 +1,8 @@
 import java.util.*;
 
 public class PrimeNum {
-    // 뭐지...
+    // 뭐지... 조합.. n개 중에 r개 뽑는 알고리즘.
+    // dfs와 백트래킹.
 
     static int solution(int[] nums) {
         // 서로 다른것 뽑는다. -> nums 두개 더하기 -> 3중 for문 개오바
