@@ -3,6 +3,7 @@ import java.util.stream.IntStream;
 
 public class SmallestNumberInArray {
     public int[] solution3(int[] arr) {
+
         if(arr.length == 1){
             int[] answer = {-1};
             return answer;
