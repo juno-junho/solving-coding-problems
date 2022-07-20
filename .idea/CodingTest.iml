@@ -17,6 +17,7 @@
       <sourceFolder url="file://$MODULE_DIR$/geeksforgeeks/practice" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/baekjoon/recursion" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/programmers/level1" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/programmers/level2" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/baekjoon/input/if" />
     </content>
     <orderEntry type="inheritedJdk" />
