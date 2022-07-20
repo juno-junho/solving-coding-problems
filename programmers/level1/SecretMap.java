@@ -26,7 +26,7 @@ public class SecretMap {
 //            StringBuilder sb1 = new StringBuilder();
 //            StringBuilder sb2 = new StringBuilder();
 //            String s1 = Integer.toBinaryString(arr1[i]);
-//            String s2 = Integer.toBinaryString(arr2[i]);
+//            String s2 = Integer.toBinaryString(arr2[
 ////            sb.append()
 //            for (int j = 0; j < 5-s1.length() ; j++) {
 //                sb1.append("*");

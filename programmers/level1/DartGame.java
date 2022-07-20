@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
-// 정규식에 대한 학습 필요.
+// 정규식에 대한 학습 필요. ** 정규식과 matcher에 대해서.
 // stack으로 풀어보기.. 시간이 많이 걸림.
 // Pattern 과 Matcher 공부하기
 public class DartGame {
