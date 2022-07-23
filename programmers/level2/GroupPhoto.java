@@ -4,6 +4,8 @@ public class GroupPhoto {
     // 고민한 흔적.
     // GroupPhoto1이 정답.
     // 자바의 순열에 대해서 공부하기. 백트래킹.
+    // https://bcp0109.tistory.com/14
+    // https://118k.tistory.com/267
     static final String[] kakaoFriends = {"A", "C", "F", "J", "M", "N", "R", "T"};
     static int solution(int n, String[] data) {
         // {A, C, F, J, M, N, R, T}
