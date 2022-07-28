@@ -2,6 +2,18 @@ public class OneTwoFourNation {
     // 진짜 현타온다.......
     // 2시간 가까이해서 푼건데.....
     // 다른 사람 정답은 왜이렇게 간단한걸까...
+    /*
+    풀이 :
+    1,2,3 을 {1,2,4}로 표현하기 전에 3진법으로 풀면 1,2,10 이다. 3은 10으로 두자리가 된다.
+하지만 124나라 기법으로 하면 두자리가 아니고 3은 4<-가 된다.
+이것을 유의하기만 하면 되는데
+
+    n이 3으로 나누어 떨어지면 0대신 4를 저장하고 n = n-1. n을 3으로 나눈 몫으로 다시 저장 (while문 반복)
+    n이 3으로 나누어 떨어지지 않으면 n%3 (나머지)를 저장. n 을 3으로 나눈 목승로 다시 저장.
+
+    // 아래 solution1은 3으로 나눠떨어지면 0대신 4로 치환하고 n-1을 3으로 나누어 그 앞에 자리를 -1 시킴.
+
+     */
     public String solution1(int n) {
         String[] num = {"4","1","2"};
         String answer = "";
@@ -58,10 +70,20 @@ public class OneTwoFourNation {
             else return answer;
         }
     }
-
+    static String ternary(int n , int radix){
+        String answer = "";
+        while (n > 0){
+            answer = (n % radix) + answer;
+            n /= radix;
+        }
+        return answer;
+    }
     public static void main(String[] args) {
         // int n인 10진수를
-        System.out.println(solution(27));
+        System.out.println(solution(16));
+
+//        System.out.println(ternary(36,2));
+        System.out.println(ternary(16,3));
     }
     
 }
