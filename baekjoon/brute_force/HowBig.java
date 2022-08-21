@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class HowBig {
@@ -8,20 +6,27 @@ public class HowBig {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        List<int[]> peopleList = new ArrayList<>();
-
+        int[] weight = new int[n];
+        int[] height = new int[n];
+        int[] rank = new int[n];
         for (int i = 0; i < n ; i++) {
-            int x = sc.nextInt();
-            int y = sc.nextInt();
-            int[] big = {x,y};
-            peopleList.add(big);
+            weight[i] = sc.nextInt();
+            height[i] = sc.nextInt();
         }
-        int xMax = 0;
-        int yMax = 0;
-        for (int[] arr:peopleList) {
-            for (int x:arr) {
+        int count = 1;
+        for (int i = 0; i < n ; i++) {
+            // 하나하나 돌면서 자기 보다 weight과 height가 모두 큰 사람 count
+            for (int j = 0; j < n; j++) {
+                if (i == j) continue;
+                if((weight[i] < weight[j]) && (height[i] < height[j])) count++;
             }
+            rank[i] = count;
+            count = 1;
         }
+        for (int i : rank) {
+            System.out.print(i + " ");
+        }
+
 
     }
 }
