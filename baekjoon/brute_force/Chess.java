@@ -10,8 +10,10 @@ public class Chess {
         // 풀이법 : n x m으로 입력 받아서
         // 8 x 8 로 돌면서 다시 칠해야 하는 수가 가장 적은것 리턴
         int[][] chess = new int[n][m];
-        for (int i = 0; i < n ; i++) {
-
+        for (int i = 0; i <n ; i++) {
+            for (int j = 0; j <m ; j++) {
+//                chess[i][j]
+            }
         }
 
     }
