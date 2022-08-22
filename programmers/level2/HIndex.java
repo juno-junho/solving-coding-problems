@@ -1,5 +1,6 @@
 import java.util.Arrays;
 
+// 정렬을 이용해서 다시 풀어보기.
 public class HIndex {
     static int solution(int[] citations) {
         // 최댓값을 구한다
