@@ -19,7 +19,7 @@
       <sourceFolder url="file://$MODULE_DIR$/programmers/level1" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/programmers/level2" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/geeksforgeeks/matrix" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/baekjoon" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/baekjoon/sorting" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/baekjoon/input/if" />
     </content>
     <orderEntry type="inheritedJdk" />
