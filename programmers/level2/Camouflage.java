@@ -2,6 +2,7 @@ import java.util.HashMap;
 
 // 핵심은 경우의수. 수학이다. 옷을 안입는 경우를 + 1 해서 생각하기.
 // stream으로 풀어보기.
+// map의 getOrDefault 메소드 공부하기.
 public class Camouflage {
     static int solution(String[][] clothes) {
         HashMap<String,Integer> map = new HashMap<>();
@@ -10,6 +11,11 @@ public class Camouflage {
             if (map.containsKey(clothe[1])) map.put(clothe[1],map.get(clothe[1])+1);
             else map.put(clothe[1],1);
         }
+        // 아래 코드로 변환 가능.
+//        for(int i=0; i<clothes.length; i++) {
+//            map.put(clothes[i][1], map.getOrDefault(clothes[i][1], 0) + 1);
+//        }
+
         // 조합이 필요하다
         // key - value로 이루어진 것을 하나씩만 입는 경우, 두가지를 입는 경우, 세가지를 입는경우 ... map.size()만큼 입는 경우
         int count = 1;
