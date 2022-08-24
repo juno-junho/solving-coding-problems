@@ -1,4 +1,11 @@
 public class Carpet {
+    // 근의 공식으로 풀수도 있음.
+    public int[] solution2(int brown, int yellow) {
+        int a = (brown+4)/2;
+        int b = brown + yellow;
+        int[] answer = {(int)(a+ Math.sqrt(a*a-4*b))/2,(int)(a-Math.sqrt(a*a-4*b))/2};
+        return answer;
+    }
     public int[] solution(int brown, int yellow) {
 
 //        int[] answer = new int[2];
@@ -9,7 +16,9 @@ public class Carpet {
 
         // 2(a + b) - 4 = brown  // (brown + 4)/2 = a + b;
         // a * b = brown + yellow
-        // x2 - 2(brown + 4)x + brown + yellow
+        //
+
+
         int totalSize = brown + yellow;
 
         for (int i = 1; i <= totalSize; i++) {
