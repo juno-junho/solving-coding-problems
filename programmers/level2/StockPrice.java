@@ -1,7 +1,8 @@
 import java.util.Stack;
 
+// solution 2 이해하기.
 public class StockPrice {
-    public int[] solution2(int[] prices) {
+    static int[] solution2(int[] prices) {
         int[] answer = new int[prices.length];
         Stack<Integer> stack = new Stack<>();
 
@@ -41,5 +42,9 @@ public class StockPrice {
         answer[prices.length-1] = 0;
 
         return answer;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solution2(new int[]{1,2,3,2,3}));
     }
 }
