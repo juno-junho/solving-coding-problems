@@ -1,4 +1,5 @@
 public class SkillTree {
+    // 다른 사람 풀이 공부
     static int solution(String skill, String[] skill_trees) {
         int[] alphabet = new int[26];
         int order = 1;
