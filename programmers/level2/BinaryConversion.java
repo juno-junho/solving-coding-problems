@@ -8,9 +8,13 @@ public class BinaryConversion {
         int conversionNum = 0;
 
         while (!s.equals("1")){
-            long count = s.chars().filter(i -> i == '1').count();
-            removedZeroNum+= s.chars().filter(i -> i == '0').count();
-            s = Long.toBinaryString(count);
+            for (char c : s.toCharArray()) {
+                if (c == '0') removedZeroNum++;
+            }
+            s = s.replace("0","");
+//            long count = s.chars().filter(i -> i == '1').count();
+//            removedZeroNum+= s.chars().filter(i -> i == '0').count();
+            s = Long.toBinaryString(s.length());
             conversionNum++;
         }
 
@@ -23,8 +27,10 @@ public class BinaryConversion {
 
         System.out.println(Integer.toBinaryString(4));
         String s = "0111010";
-        long count = s.chars().filter(i -> i == '1').count();
-        System.out.println(count);
+        String replace = s.replace("0", "");
+        System.out.println(replace);
+//        long count = s.chars().filter(i -> i == '1').count();
+//        System.out.println(count);
     }
 }
 
