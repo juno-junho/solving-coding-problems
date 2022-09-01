@@ -33,5 +33,6 @@ class TwoPointer1 {
             b[i] = sc.nextInt();
         }
         for (int x : T.solution(n,m,a,b)) System.out.print(x + " ");
+        
     }
 }
