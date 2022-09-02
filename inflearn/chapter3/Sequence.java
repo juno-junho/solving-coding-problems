@@ -40,7 +40,6 @@ class Sequence {
         for (int i = 0; i < n; i++) {
             a[i] = sc.nextInt();
         }
-
         System.out.println(T.solution(n,m,a));
 
     }
