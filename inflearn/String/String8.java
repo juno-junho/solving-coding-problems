@@ -5,12 +5,15 @@ class String8 {
     public String solution(String str) {
         str = str.replaceAll("[^a-zA-Z]", "");
 //        str = str.replaceAll("^[a-zA-Z]*$", "");
-        System.out.println(str);
-        // 1.str에서 알파벳 빼고 다 제외시킨다.
-        // 2. 똑같은 방법으로.
-
-
         String answer = str.equalsIgnoreCase(new StringBuilder(str).reverse().toString()) ? "YES" : "NO";
+        return answer;
+    }
+    // 강사 풀이
+    public String solution1(String str) {
+        String answer = "NO";
+        str = str.toUpperCase().replaceAll("[^A-Z]", "");
+        String tmp = new StringBuilder(str).reverse().toString();
+        if (str.equals(tmp)) answer = "YES";
         return answer;
     }
 
