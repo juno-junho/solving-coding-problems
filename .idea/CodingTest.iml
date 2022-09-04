@@ -21,8 +21,9 @@
       <sourceFolder url="file://$MODULE_DIR$/geeksforgeeks/matrix" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/baekjoon/sorting" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/programmers/level3" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/inflearn/String" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/inflearn/chapter3" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/inflearn/array" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/inflearn/string" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/baekjoon/input/if" />
     </content>
     <orderEntry type="inheritedJdk" />
