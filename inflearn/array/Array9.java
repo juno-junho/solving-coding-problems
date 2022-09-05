@@ -24,7 +24,7 @@ class Array9 {
             for (int j = n; j > 0; j--) {
                 sum2 += arr[j - 1][j - 1];
             }
-            max = Math.max(Math.max(sum1, sum2), max)
+            max = Math.max(Math.max(sum1, sum2), max);
         }
 
         return max;
