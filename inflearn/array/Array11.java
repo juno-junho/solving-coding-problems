@@ -1,9 +1,9 @@
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
 class Array11 {
+    // 꼭 for문안에 for문이 있다고해서 종속적인것이 아님. 동등한 위치여도 된다. n*n == 이중 for문
     int solution(int n, int[][] arr) {
         int answer = 1;
         int max = 0;
@@ -22,27 +22,29 @@ class Array11 {
 //            System.out.println((i+1) + " " + set);
             if (set.size() > max) {
                 max = set.size();
-                answer = i+1;
+                answer = i + 1;
             }
         }
         return answer;
     }
+    // 강사 풀이ㅎ
     int solution1(int n, int[][] arr) {
-        System.out.println(Arrays.deepToString(arr));
-
         int answer = 0;
         int max = Integer.MIN_VALUE;
         for (int i = 1; i <= n; i++) {
+            // i번 학생이 j번 학생과 같은반한 인원은 몇명있는지
             int cnt = 0;
             for (int j = 1; j <= n; j++) {
+                // k는 학년
                 for (int k = 1; k <= 5; k++) {
-                    if (arr[i][k] == arr[j][k]) {
+                    if (arr[i][k] == arr[j][k]) { // i학생과 j 학생이 k반에서 같은반인 경우
                         cnt++;
+                        // 같은경우 j학생을 한번만 counting해줘야 한다.
                         break;
                     }
                 }
             }
-            if (cnt > max){
+            if (cnt > max) {
                 max = cnt;
                 answer = i;
             }
@@ -50,6 +52,7 @@ class Array11 {
 
         return answer;
     }
+
     public static void main(String[] args) {
         Array11 T = new Array11();
         Scanner sc = new Scanner(System.in);
@@ -60,7 +63,7 @@ class Array11 {
 //                arr[i][j] = sc.nextInt();
 //            }
 //        }
-        int[][] arr = new int[n+1][5+1];
+        int[][] arr = new int[n + 1][5 + 1];
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= 5; j++) {
                 arr[i][j] = sc.nextInt();
