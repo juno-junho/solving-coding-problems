@@ -49,7 +49,6 @@ class Array11 {
                 answer = i;
             }
         }
-
         return answer;
     }
 
