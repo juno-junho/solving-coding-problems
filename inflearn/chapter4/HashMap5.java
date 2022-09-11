@@ -2,7 +2,7 @@ import java.util.*;
 
 class HashMap5 {
     // set + 정렬 == TreeSet 사용하기. TreeSet은 Collection.sort() 사용할 필요없이 자동으로 sort 해준다!!
-    // Tree
+    // TreeSet의 메소드. first(), last() 메소드 있는것 기억하기.
     // set 출력방법 잘 알기. for each문, iterator, forEach()메소드
     int solution(int n, int k, Integer[] arr) {
         // arr 중에 3장을 뽑아 적힌 수를 합하려고 할때, k번째로 큰수

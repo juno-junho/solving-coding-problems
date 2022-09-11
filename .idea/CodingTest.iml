@@ -25,6 +25,7 @@
       <sourceFolder url="file://$MODULE_DIR$/inflearn/array" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/inflearn/string" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/inflearn/chapter4" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/inflearn/chapter5" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/baekjoon/input/if" />
     </content>
     <orderEntry type="inheritedJdk" />
