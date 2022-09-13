@@ -30,6 +30,41 @@ class StackAndQueue4 {
 
         return stack.get(0);
     }
+//    int solution1(String str) {
+//        int answer = 0;
+//        Stack<Character> stack = new Stack();
+//        for (char x : str.toCharArray()) {
+//            // 숫자면 stack에 넣기
+//            if (Character.isDigit(x)) stack.push((char)(x+48));
+//            else {
+//                int num1 = stack.pop() - 48;
+//
+//                int num2 = stack.pop() - 48;
+//                int i;
+//                switch (x){
+//                    case '+':
+//                        i = num2 + num1;
+//                        stack.push((char) (i + 48));
+//                        break;
+//                    case '-':
+//                        i = num2 - num1;
+//                        stack.push((char) (i + 48));
+//                        break;
+//                    case '*':
+//                        i = num2 * num1;
+//                        stack.push((char) (i + 48));
+//                        break;
+//                    case '/':
+//                        i = num2 / num1;
+//                        stack.push((char) (i + 48));
+//                        break;
+//                }
+//            }
+//        }
+//        answer = Integer.parseInt(stack.get(0).toString());
+//
+//        return answer;
+//    }
     public static void main(String[] args) {
         StackAndQueue4 T = new StackAndQueue4();
         Scanner sc = new Scanner(System.in);
