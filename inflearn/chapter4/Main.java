@@ -36,6 +36,7 @@ class Main {
         }
         for (Integer i : T.solution(n, k, arr)) {
             System.out.print(i + " ");
+
         }
     }
 }
