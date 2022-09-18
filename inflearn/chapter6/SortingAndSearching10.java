@@ -1,25 +1,49 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
+// 결정 알고리즘 사용 문제 2-> 최솟값과 최댓값 사이에 답이 무조건 있을때 사용한다.
 class SortingAndSearching10 {
 
-    // c가 동물 마리수
-    int solution1(int n, int c, int[] arr) {
+    //강사 풀이.
+    int count(int[] arr, int dist) {
+        int count = 1;
+        int ep = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] - ep >= dist) {
+                count++;
+                ep = arr[i];
+            }
+        }
+        return count;
+    }
+    int solution(int n, int c, int[] arr) {
         int answer = 0;
+        Arrays.sort(arr);
         int lt = 1;
         int rt = arr[n - 1] - arr[0];
+
         while (lt <= rt) {
+            // 말 사이 거리 최솟값
             int mid = (lt + rt) / 2;
-            // 끝값 제외하고 c-2 마리를 넣는다.
-            for (int i = 1; i < n - 1; i++) {
+            int count = 1;
+            // logic start
+            for (int i = 0; i < n-1; i++) {
+                for (int j = i + 1; j < n; j++) {
+                    if ((arr[j] - arr[i]) >= mid) {
+                        i = j - 1;
+                        count++;
+                        break;
+                    }
+                }
             }
-
+            // logic end
+            if (count >= c) {
+                answer = mid;   // possible
+                lt = mid + 1;
+            } else rt = mid - 1;    // impossible
         }
-        // n개의 마구간이 수직선 상에 있다.
         return answer;
-
     }
-
     public static void main(String[] args) {
         SortingAndSearching10 T = new SortingAndSearching10();
         Scanner sc = new Scanner(System.in);
@@ -27,6 +51,6 @@ class SortingAndSearching10 {
         int c = sc.nextInt();
         int[] arr = new int[n];
         for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
-        System.out.println(T.solution1(n, c, arr));
+        System.out.println(T.solution(n, c, arr));
     }
 }

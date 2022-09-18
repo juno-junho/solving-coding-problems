@@ -1,6 +1,9 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
+// 결정 알고리즘 사용 문제 1
+// 결정 알고리즘은 lt와 rt 사이에 찾고자 하는 답이 확실하게 존재할때 결정 알고리즘을 적용할 수 있다.
+
 class SortingAndSearching9 {
     //뻘짓함. 내가 한 풀이는 정렬 한 다음 하는 건데 문제는 정렬 하란말이 없음.
 //    int solution(int n, int m, int[] arr) {
