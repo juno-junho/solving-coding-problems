@@ -54,9 +54,7 @@ class SortingAndSearching9 {
                 rt = mid - 1;
             }
             // 담을 수 없다
-            else {
-                lt = mid + 1;
-            }
+            else lt = mid + 1;
         }
         return answer;
     }
