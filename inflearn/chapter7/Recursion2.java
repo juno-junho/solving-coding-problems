@@ -20,15 +20,15 @@ class Recursion2 {
      d(1) -- line 6    1
      d(2) -- line 6    0
      d(5) -- line 6    1
-     d(11)-- line 6    1
+     d(11)-- line 6    1f
      */
 
     void dfs1(int n) {
         if (n == 0) return;
         else{
-//            System.out.print(n % 2 + " ");
+//            System.out.print(n % 2 + "");
             dfs(n / 2);
-            System.out.print(n % 2 + " ");
+            System.out.print(n % 2 + "");
         }
     }
 
