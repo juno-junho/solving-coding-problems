@@ -1,13 +1,49 @@
 class DepthFirstSearch1 {
+    static class Node {
+        private int data;
 
-    Node root;
+        private Node lt, rt;
 
-    public void dfs(Node rooot) {
-        if (root == null) return;
+        public Node(int data) {
+            this.data = data;
+            lt = null;
+            rt = null;
+        }
+
+        public int getData() {
+            return data;
+        }
+
+        public void setData(int data) {
+            this.data = data;
+        }
+
+        public Node getLt() {
+            return lt;
+        }
+
+        public void setLt(Node lt) {
+            this.lt = lt;
+        }
+
+        public Node getRt() {
+            return rt;
+        }
+
+        public void setRt(Node rt) {
+            this.rt = rt;
+        }
+    }
+    private Node root;
+
+    public void dfs(Node node) {
+        if (node == null) return; // 말단 node로 온 것
         else{
-            System.out.print(root.getData() + " ");
-            dfs(root.getLt());
-            dfs(root.getRt());
+            System.out.print(node.getData() + " "); // 전위순회
+            dfs(node.getLt());
+//            System.out.print(node.getData() + " "); // 중위순회
+            dfs(node.getRt());
+//            System.out.print(node.getData() + " "); // 후위순회
         }
     }
 
@@ -23,38 +59,3 @@ class DepthFirstSearch1 {
         tree.dfs(tree.root);
     }
 }
-class Node {
-    int data;
-    Node lt, rt;
-
-    public Node(int data) {
-        this.data = data;
-        lt = null;
-        rt = null;
-    }
-
-    public int getData() {
-        return data;
-    }
-
-    public void setData(int data) {
-        this.data = data;
-    }
-
-    public Node getLt() {
-        return lt;
-    }
-
-    public void setLt(Node lt) {
-        this.lt = lt;
-    }
-
-    public Node getRt() {
-        return rt;
-    }
-
-    public void setRt(Node rt) {
-        this.rt = rt;
-    }
-}
-
