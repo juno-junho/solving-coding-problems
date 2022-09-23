@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 class Graph3 {
     /**
-        그래프 최단거리
+        그래프 최단거리d
      */
     static int n, m;
     static ArrayList<ArrayList<Integer>> graph;
