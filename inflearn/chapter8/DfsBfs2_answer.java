@@ -17,9 +17,7 @@ class DfsBfs2_answer {
             dfs(l + 1, sum + arr[l], arr);
             dfs(l + 1, sum, arr);
         }
-
     }
-
 
     public static void main(String[] args) {
         DfsBfs2_answer T = new DfsBfs2_answer();
@@ -32,7 +30,5 @@ class DfsBfs2_answer {
         }
         T.dfs(0, 0, arr);
         System.out.println(answer);
-
     }
-
 }
