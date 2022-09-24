@@ -3,7 +3,7 @@ import java.util.Scanner;
 // 합이 같은 부분 집합
 class DfsBfs1 {
     // 집합을 두 개의 부분집합으로 나누었을 때 두 부분집합의 원소의 합이 서로 같은 경우 존재시 YES. 없으면 NO 출력
-    // 내코드의 문제 : sum += arr[num]을 사용하면 넘기는 sum값 또한 다 바뀌게 된다.
+    // 내코드의 문제 : sum += arr[num]을 사용하면 넘기는 sum값 또한 다 바뀌게 된다. -> 출력값이 모두 32(total값)로 나오는 이유.
     private String solution(int n, int[] arr) {
         String answer = "NO";
 
@@ -21,7 +21,7 @@ class DfsBfs1 {
             if (total - sum == sum) flag = true;
         }else{
             dfs(num + 1, sum += arr[num]);
-            dfs(num + 1, sum -= arr[num]); // 정확히 왜 빼줘야하는지는 모르겠음. (위에 sum+=를 해줬기 때문에. 안하는게 맞음)
+            dfs(num + 1, sum); // 정확히 왜 빼줘야하는지는 모르겠음. (위에 sum+=를 해줬기 때문에. 안하는게 맞음)
         }
     }
 
