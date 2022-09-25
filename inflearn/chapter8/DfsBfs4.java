@@ -8,14 +8,15 @@ class DfsBfs4 {
     static int m;
     static int[] arr;
     private void dfs(int l, int level) {
-        if (level == m + 1) {
-            System.out.println(Arrays.toString(arr));
-
+        StringBuilder sb = new StringBuilder();
+        if (level == m) {
+            System.out.println(sb.toString());
+            sb = new StringBuilder();
         } else {
+            level++;
             for (int i = 1; i <= n; i++) {
-                level++;
-                arr[level - 1] = i;
-                dfs(l + i, level);
+                dfs(i, level);
+                System.out.print(i + " ");
             }
         }
     }
@@ -26,7 +27,7 @@ class DfsBfs4 {
         n = sc.nextInt();
         m = sc.nextInt();
         arr = new int[m];
-        T.dfs(0, 1);
+        T.dfs(0, 0);
         System.out.println(answer);
     }
 }

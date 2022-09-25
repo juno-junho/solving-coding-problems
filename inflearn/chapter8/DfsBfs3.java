@@ -35,7 +35,5 @@ class DfsBfs3 {
         }
         T.dfs(0, 0, 0);
         System.out.println(answer);
-
     }
-
 }

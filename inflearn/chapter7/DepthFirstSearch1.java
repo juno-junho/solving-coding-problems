@@ -39,11 +39,11 @@ class DepthFirstSearch1 {
     public void dfs(Node node) {
         if (node == null) return; // 말단 node로 온 것
         else{
-            System.out.print(node.getData() + " "); // 전위순회
+//            System.out.print(node.getData() + " "); // 전위순회
             dfs(node.getLt());
 //            System.out.print(node.getData() + " "); // 중위순회
             dfs(node.getRt());
-//            System.out.print(node.getData() + " "); // 후위순회
+            System.out.print(node.getData() + " "); // 후위순회
         }
     }
 
