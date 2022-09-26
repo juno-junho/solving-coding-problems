@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 class RotateMatrix {
     public static void main(String[] args) {
         int[][] image = {
@@ -24,8 +22,6 @@ class RotateMatrix {
         printImage(image);
         rotateImage(image);
     }
-
-
 
     /**
      * Loop : s = 0, e = 4
