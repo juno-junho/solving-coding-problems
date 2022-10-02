@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-// 미로탐색 (DFS)
+// dfs
 class DfsBfs11 {
 
     static int[] dx = {-1, 0, 1, 0};
