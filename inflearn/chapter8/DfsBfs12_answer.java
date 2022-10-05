@@ -1,12 +1,10 @@
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-// 토마토 (bfs 활용) //  다시 풀어보기.
-// 내가 처음 못풀었던 이유 : 1을 매번 check해줘야 하는줄.. -> distance 배열을 이용해서 해결됨.
-// (1을 매번 2중 for문으로 꺼내서 ... 라고 생각했었음)
-class DfsBfs12 {
+// 강사 풀이 (queue를 밖으로 빼서 scanner로 입력과 동시에 받음)
+//
+class DfsBfs12_answer {
 
     static int[] dx = {-1, 0, 1, 0};
     static int[] dy = {0, 1, 0, -1};
@@ -15,15 +13,8 @@ class DfsBfs12 {
     static int[][] distance;
     static int m;
     static int n;
-
+    static Queue<Point> queue = new LinkedList<>();
     private int bfs() {
-        Queue<Point> queue = new LinkedList<>();
-        // 처음 storage에서 1인 좌표를 queue에 넣는다.
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if(storage[i][j] == 1) queue.offer(new Point(i, j));
-            }
-        }
         // bfs 돌기
         while (!queue.isEmpty()) {
             Point temp = queue.poll();
@@ -55,7 +46,7 @@ class DfsBfs12 {
     }
 
     public static void main(String[] args) {
-        DfsBfs12 T = new DfsBfs12();
+        DfsBfs12_answer T = new DfsBfs12_answer();
         Scanner sc = new Scanner(System.in);
         m = sc.nextInt();
         n = sc.nextInt();
@@ -64,6 +55,7 @@ class DfsBfs12 {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 storage[i][j] = sc.nextInt();
+                if(storage[i][j] == 1) queue.offer(new Point(i, j));
             }
         }
         System.out.println(T.bfs());
