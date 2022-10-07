@@ -17,6 +17,7 @@ class DfsBfs12 {
     static int n;
 
     private int bfs() {
+
         Queue<Point> queue = new LinkedList<>();
         // 처음 storage에서 1인 좌표를 queue에 넣는다.
         for (int i = 0; i < n; i++) {
