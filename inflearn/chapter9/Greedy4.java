@@ -5,7 +5,6 @@ class Greedy4 {
     public static void main(String[] args) {
         Greedy4 T = new Greedy4();
         Scanner sc = new Scanner(System.in);
-
         int n = sc.nextInt();
         int[] startTime = new int[n];
         int[] endTime = new int[n];
@@ -19,5 +18,4 @@ class Greedy4 {
     private void solution(int n, int[] startTime, int[] endTime) {
 
     }
-
 }
