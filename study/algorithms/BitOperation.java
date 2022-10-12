@@ -13,7 +13,7 @@ class BitOperation {
     }
 
     static int clearLeftBits(int num, int i) {
-     return num & (1 << i) -1;
+     return num & ((1 << i) -1);
     }
 
     public static void main(String[] args) {
