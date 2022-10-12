@@ -38,7 +38,7 @@ class Greedy2_answer {
         for(int i=0; i<n; i++){
             int x=kb.nextInt();
             int y=kb.nextInt();
-            arr.add(new Time1());
+            arr.add(new Time1(x, y));
         }
         System.out.println(T.solution(arr, n));
     }
