@@ -1,3 +1,5 @@
+package engineerkorea;
+
 public class UsingStringBuilder {
     /**
      *  String joinWord(String[] words){
@@ -16,18 +18,18 @@ public class UsingStringBuilder {
      * -> 속도는 Stringbuilder보다 느리지만 multi Thread환경이라면 동기화를 보장하기 위해서 StringBuffer를 사용해야한다.
      */
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder1 sb = new StringBuilder1();
         sb.append("junho");
         sb.append("hwang");
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 }
 
-class StringBuilder {
+class StringBuilder1 {
     private char[] value;   // 문자열 저장할 char 배열
     private int size;   // 배열 방의 크기
     private int index;  // 새로추가될 char에 방번호를 기억하고 있을 변수
-    StringBuilder(){
+    StringBuilder1(){
         size = 1;
         value = new char[size];
         index = 0;
