@@ -11,9 +11,9 @@ package engineerkorea;
  */
 class StringPalindromePermutation {
     public static void main(String[] args) {
-        System.out.println(isPermutationOfPalindromeLessCode("aa bb cc dd"));
-        System.out.println(isPermutationOfPalindromeLessCode("aa bb cc dd e"));
-        System.out.println(isPermutationOfPalindromeLessCode("aa bb cc dd e fff"));
+        System.out.println(isPermutationOfPalindromeUsingBitOperation("aa bb cc dd"));
+        System.out.println(isPermutationOfPalindromeUsingBitOperation("aa bb cc dd e"));
+        System.out.println(isPermutationOfPalindromeUsingBitOperation("aa bb cc dd e fff"));
     }
     private static boolean isPermutationOfPalindrome(String s) {
         int[] table = buildCharFrequencyTable(s);
@@ -68,12 +68,11 @@ class StringPalindromePermutation {
     private static boolean isPermutationOfPalindromeUsingBitOperation(String s) {
         int bitVector = createBitVector(s); // 짝수, 홀수 비트값을 만드는 함수
         return bitVector == 0 || checkExactlyOneBitSet(bitVector); // bitVector ==0 : 모두 짝수이거나 하나만 홀수 있는지 함수
-
-
     }
+
     private static boolean checkExactlyOneBitSet(int bitVector) { // bitVector 안에서 하나만 홀수개인지 정의하는 함수
         // bitVector에서 1을 뺀것과 & 했을때 0이 나와야함.
-        return ((bitVector & (bitVector - 1)) == 0);
+        return (bitVector & (bitVector - 1)) == 0;
     }
 
     private static int createBitVector(String s) {
@@ -87,7 +86,7 @@ class StringPalindromePermutation {
 
     private static int toggle(int bitVector, int index) {
         if (index < 0) return bitVector;
-        int mask = index << 1;
+        int mask = 1 << index;
         if((bitVector & mask) == 0) { // bitVector에 스위치 꺼져있을때
             bitVector |= mask;
         }else{ // 스위치 켜저 있으면 0으로 꺼야함.
