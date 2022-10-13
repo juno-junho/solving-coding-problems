@@ -11,6 +11,12 @@ package engineerkorea;
  */
 class StringPalindromePermutation {
     public static void main(String[] args) {
+        char c = '1';
+        System.out.println((int)c);
+        System.out.println(Character.getNumericValue(1));
+        System.out.println(Character.getNumericValue('1'));
+        System.out.println(Character.getNumericValue('a'));
+        System.out.println(Character.getNumericValue('z'));
         System.out.println(isPermutationOfPalindromeUsingBitOperation("aa bb cc dd"));
         System.out.println(isPermutationOfPalindromeUsingBitOperation("aa bb cc dd e"));
         System.out.println(isPermutationOfPalindromeUsingBitOperation("aa bb cc dd e fff"));
@@ -47,6 +53,8 @@ class StringPalindromePermutation {
         int z = Character.getNumericValue('z');
         int val = Character.getNumericValue(c);
         if (a <= val && val <= z) return val - a;
+        /*if ('a' <= c && c <= 'z') return c - 'a';
+        return -1;*/
         return -1;
     }
 
