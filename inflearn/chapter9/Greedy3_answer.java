@@ -1,4 +1,3 @@
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -20,13 +19,14 @@ class Time2 implements Comparable<Time2>{
 
 class Greedy3_answer {
     public int solution(ArrayList<Time2> arr){
-        int answer=Integer.MIN_VALUE;
+        int answer = Integer.MIN_VALUE;
         Collections.sort(arr);
-        int cnt=0;
+
+        int cnt = 0;
         for(Time2 ob : arr){
             if(ob.state=='s') cnt++;
-            else cnt--;
-            answer=Math.max(answer, cnt);
+            else cnt--; // alphabet e 일때
+            answer = Math.max(answer, cnt);
         }
         return answer;
     }
