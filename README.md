@@ -1,4 +1,4 @@
-# :pushpin: solving-coding problems
+# :pushpin: solving-coding-problems
 This repository is where I learn about data structure &amp; algorithms for preparing coding test
 <br>
  - Site I used 📚 :
