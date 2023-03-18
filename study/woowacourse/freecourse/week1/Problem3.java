@@ -1,17 +1,13 @@
 package freecourse.week1;
 
+import freecourse.week1.problem3.Game369;
+
 public class Problem3 {
 
     public static int solution(int number) {
-        int count = 0;
-        for (int i = 1; i <= number; i++) {
-            int targetNumber = i;
-            while (targetNumber > 0) {
-                if(isThreeSixNine(targetNumber)) count++;
-                targetNumber /= 10;
-            }
-        }
-        return count;
+        Game369 game369 = new Game369();
+        game369.playTheGame(number);
+        return game369.getClapCount();
     }
 
     static boolean isThreeSixNine(int number) {

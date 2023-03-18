@@ -15,7 +15,6 @@ public class Problem6 {
         List<String> result = new ArrayList<>();
         // 이름 , 이메일(중복가능)
         Map<String, String> nickname = new HashMap<>();
-        int index = 1;
 
         for (List<String> form : forms) {
             for (int i = 0; i < form.get(1).length() - 1; i++) {

@@ -27,6 +27,5 @@ public class Multiplication {
         C = Long.parseLong(st.nextToken());
 
         System.out.println(multiply(A, B, C));
-
     }
 }
