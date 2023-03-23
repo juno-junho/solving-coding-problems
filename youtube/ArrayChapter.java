@@ -29,10 +29,16 @@ public class ArrayChapter {
         arrayList.add("8");
         arrayList.add("9");
         System.out.println(arrayList.get(5));
-
+        arrayList.add("10");
+        arrayList.add("11");
+        arrayList.add("12");
+        arrayList.add("13");
+        arrayList.add("14");
+        System.out.println("===============");
         arrayList.insert(5, "10");
         System.out.println("===============");
-        System.out.println(arrayList.get(0));
+        arrayList.print();
+       /* System.out.println(arrayList.get(0));
         System.out.println(arrayList.get(1));
         System.out.println(arrayList.get(2));
         System.out.println(arrayList.get(3));
@@ -42,7 +48,7 @@ public class ArrayChapter {
         System.out.println(arrayList.get(7));
         System.out.println(arrayList.get(8));
         System.out.println(arrayList.get(9));
-        System.out.println(arrayList.get(10));
+        System.out.println(arrayList.get(10));*/
         System.out.println("===============");
 
         Object remove = arrayList.remove(5);
@@ -117,12 +123,26 @@ class ArrayList{
             throw new NegativeArraySizeException("Negative Value");
         }
         // index 부터 끝까지는 한칸씩 옮기고, index 자리에 obj 넣는다.
-        // 한칸씩 옮기기 전, doubling 실행한다.
-        doubling();
-        for (int i = this.data.length / 2 - 2; i >= index; i--) {
+        // 한칸씩 옮기기 전, index가 차면 doubling 실행한다.
+        if (this.size - 1 == this.index) {
+            doubling();
+            for (int i = this.data.length / 2 - 2; i >= index; i--) {
+                this.data[i + 1] = this.data[i];
+            }
+            this.data[index] = obj;
+            this.index++;
+            return;
+        }
+        for (int i = this.data.length - 2; i >= index; i--) {
             this.data[i + 1] = this.data[i];
         }
         this.data[index] = obj;
         this.index++;
+    }
+
+    public void print() {
+        for (int i = 0; i < this.data.length; i++) {
+            System.out.println("index: " + i + ", value: " + this.data[i]);
+        }
     }
 }
