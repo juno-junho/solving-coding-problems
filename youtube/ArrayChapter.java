@@ -10,6 +10,10 @@ public class ArrayChapter {
      * ArrayList는 **평균적으로**
      * 입력시간 : O(1)
      * 검색시간 : O(1)
+     * 마지막 원소 제거 / 추가 : O(1)
+
+     * 임의의 위치에 원소 추가 : O(N) - insert
+     * 임의의 위치에 원소 제거 : O(N) - remove
      */
 
     public static void main(String[] args) {
@@ -25,6 +29,21 @@ public class ArrayChapter {
         arrayList.add("8");
         arrayList.add("9");
         System.out.println(arrayList.get(5));
+
+        arrayList.insert(5, "10");
+        System.out.println("===============");
+        System.out.println(arrayList.get(0));
+        System.out.println(arrayList.get(1));
+        System.out.println(arrayList.get(2));
+        System.out.println(arrayList.get(3));
+        System.out.println(arrayList.get(4));
+        System.out.println(arrayList.get(5));
+        System.out.println(arrayList.get(6));
+        System.out.println(arrayList.get(7));
+        System.out.println(arrayList.get(8));
+        System.out.println(arrayList.get(9));
+        System.out.println(arrayList.get(10));
+        System.out.println("===============");
 
         Object remove = arrayList.remove(5);
         System.out.println("data removed: " + remove);
@@ -89,5 +108,21 @@ class ArrayList{
         }
         this.index--;
         return removedData;
+    }
+
+    public void insert(int index, Object obj) {
+        if (index > this.index - 1) {
+            throw new ArrayIndexOutOfBoundsException("ArrayIndexOutOufBound");
+        } else if (index < 0) {
+            throw new NegativeArraySizeException("Negative Value");
+        }
+        // index 부터 끝까지는 한칸씩 옮기고, index 자리에 obj 넣는다.
+        // 한칸씩 옮기기 전, doubling 실행한다.
+        doubling();
+        for (int i = this.data.length / 2 - 2; i >= index; i--) {
+            this.data[i + 1] = this.data[i];
+        }
+        this.data[index] = obj;
+        this.index++;
     }
 }
