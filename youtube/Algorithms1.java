@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Algorithms1 {
 
     /**
@@ -32,10 +34,19 @@ public class Algorithms1 {
     }
 
     // O(N)
-    /*static int func2_1(int[] arr, int n) {
+    static int func2_1(int[] arr, int n) {
+        boolean[] num = new boolean[100];
+
         for (int i = 0; i < n; i++) {
+            // 체크
+            if (num[arr[i]]) {
+                return 1;
+            }
+            // 넣기
+            num[100 - arr[i]] = false;
         }
-    }*/
+        return 0;
+    }
 
     /**
      * n이 제곱수이면 1 반환, 아니면 0 반환
