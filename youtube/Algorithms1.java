@@ -1,6 +1,4 @@
-import java.util.Arrays;
-
-public class TimeComplexity {
+public class Algorithms1 {
 
     /**
      * n 이하의 자연수 중에서 3의 배수이거나 5의 배수인 수를 모두 합한 값을 반환하는 함수를 작성해라.
@@ -106,6 +104,9 @@ public class TimeComplexity {
         System.out.println(0.1 + 0.1 + 0.1 == 0.3);
         double a = 0.1 + 0.1 + 0.1;
         double b = 0.3;
+        int compare = Double.compare(a, b);
+        System.out.println(compare);    // a가 더 크다고 나옴 ( 결과값 : 1 )
+
         if (Math.abs(a - b) < 1e-12) {
             System.out.println("SAME");
         }
