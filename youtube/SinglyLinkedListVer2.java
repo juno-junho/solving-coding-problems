@@ -8,7 +8,7 @@ class SinglyLinkedListVer2 {
      */
     Node header;
 
-    static class Node{
+    static class Node {
         int data;
         Node next = null;
     }
@@ -50,7 +50,7 @@ class SinglyLinkedListVer2 {
 
     /**
      * LinkedList에서 중복된 값 제거
-     *
+     * <p>
      * TIME : O(N^2)
      * SPACE : O(1)
      */
@@ -88,20 +88,63 @@ class SinglyLinkedListVer2 {
             n = n.next;
         }
     }
+
+    /**
+     * 단방향 LinkedList에서 끝에서 K 번째 노드를 찾는 알고리즘을 구현하여라
+     * 방법 1. index로
+     */
+    private static Node kthToLast(Node first, int k) {
+        Node n = first;
+        int total = 1;
+        while (n.next != null) {
+            total++;
+            n = n.next;
+        }
+        n = first;
+        for (int i = 1; i < total - k + 1; i++) {
+            assert n != null;
+            n = n.next;
+        }
+        return n;
+    }
+
+    /**
+     * 단방향 LinkedList에서 끝에서 K 번째 노드를 찾는 알고리즘을 구현하여라
+     * 방법 2. 재귀 호출
+     * TIME : O(N) (linkedlist 길이 n)
+     * SPACE : O(N)
+     */
+    private static int kthToLast_2(Node n, int k) {
+        if (n == null) {
+            return 0;
+        }
+        int count = kthToLast_2(n.next, k) + 1;
+        if (count == k) {
+            System.out.println("Last k(" + k + ") th data is " + n.data);
+        }
+        return count;
+    }
+    /**
+     * 단방향 LinkedList에서 끝에서 K 번째 노드를 찾는 알고리즘을 구현하여라
+     * 방법 3. 포인터
+     */
+
     public static void main(String[] args) {
         SinglyLinkedListVer2 ll = new SinglyLinkedListVer2();
 
         ll.append(2);
- /*       ll.append(3);
+        ll.append(3);
         ll.append(2);
         ll.append(5);
-        ll.append(3);*/
+        ll.append(3);
         ll.append(2);
         ll.print();
 
         // Success
 //        ll.remove(1);
-        ll.removeDupsUsingBuffer();
+//        ll.removeDupsUsingBuffer();
+        int k = 5;
+        kthToLast_2(ll.header, k);
         ll.print();
     }
 }
