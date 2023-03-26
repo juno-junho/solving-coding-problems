@@ -124,10 +124,54 @@ class SinglyLinkedListVer2 {
         }
         return count;
     }
+
+    /**
+     * 자바는 pass by reference가 없다.
+     * count라는 변수의 주소를 전달 할 수 있으면 다음 함수 호출하고 count 값 받지 않아도 값이 어떻게 변했나 보면 된다.
+     * 함수는 찾아낸 node만 반환하면 된다.
+     *
+     * 객체 / 배열은 stack에 pointer만 저장하기에 그것을 이용하는것.
+     * count를 객체 안에 넣어 객체 주소를 전달하면 된다.
+     */
+
+    static class Reference{
+        public int count = 0;
+    }
+    private static Node kthToLast_3(Node n, int k, Reference r) {
+        if (n == null) {
+            return null;
+        }
+        Node foundNode = kthToLast_3(n.next, k, r);
+        r.count++;
+        if (r.count == k) {
+            return n;
+        }
+        return foundNode;
+    }
+
     /**
      * 단방향 LinkedList에서 끝에서 K 번째 노드를 찾는 알고리즘을 구현하여라
      * 방법 3. 포인터
+     * TIME : O(N)
+     * SPACE : O(1) - 별도의 버퍼 사용 X
      */
+    private static Node kthToLast_4(Node first, int k) {
+        Node p1 = first;
+        Node p2 = first;
+
+        for (int i = 0; i < k; i++) {
+            if (p1 == null) {   // 값이 없다.
+                return null;
+            }
+            p1 = p1.next;
+        }
+        while (p1 != null) {
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+
+        return p2;
+    }
 
     public static void main(String[] args) {
         SinglyLinkedListVer2 ll = new SinglyLinkedListVer2();
@@ -144,7 +188,9 @@ class SinglyLinkedListVer2 {
 //        ll.remove(1);
 //        ll.removeDupsUsingBuffer();
         int k = 5;
-        kthToLast_2(ll.header, k);
+        Reference reference = new Reference();
+        Node found = kthToLast_3(ll.header, k, reference);
+        System.out.println(found.data);
         ll.print();
     }
 }
