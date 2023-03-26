@@ -160,10 +160,10 @@ class SinglyLinkedListVer2 {
         Node p2 = first;
 
         for (int i = 0; i < k; i++) {
+            p1 = p1.next;
             if (p1 == null) {   // 값이 없다.
                 return null;
             }
-            p1 = p1.next;
         }
         while (p1 != null) {
             p1 = p1.next;
@@ -171,6 +171,22 @@ class SinglyLinkedListVer2 {
         }
 
         return p2;
+    }
+
+    /**
+     * 단방향 Linked List에서 중간에 있는 노드를 삭제하시오.
+     * 단, 당신은 첫번째 노드가 어디에 있는지 모르고, 오직 삭제할 노드만 가지고 있다.
+     * TIME: O(1)
+     * SPACE: O(1)
+     */
+    private static boolean deleteNode(Node nodeToDelete) {
+        if (nodeToDelete == null || nodeToDelete.next == null) {
+            return false;
+        }
+        Node nextNode = nodeToDelete.next;
+        nodeToDelete.data = nextNode.data; // 값 복사
+        nodeToDelete.next = nextNode.next; // 주소값 복사
+        return true;
     }
 
     public static void main(String[] args) {
@@ -184,12 +200,12 @@ class SinglyLinkedListVer2 {
         ll.append(2);
         ll.print();
 
-        // Success
 //        ll.remove(1);
 //        ll.removeDupsUsingBuffer();
-        int k = 5;
-        Reference reference = new Reference();
-        Node found = kthToLast_3(ll.header, k, reference);
+        int k = 0;
+//        Reference reference = new Reference();
+        Node found = kthToLast_4(ll.header, k);
+        assert found != null;
         System.out.println(found.data);
         ll.print();
     }
