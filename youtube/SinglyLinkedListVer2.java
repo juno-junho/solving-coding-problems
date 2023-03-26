@@ -142,14 +142,15 @@ class SinglyLinkedListVer2 {
      * 자바는 pass by reference가 없다.
      * count라는 변수의 주소를 전달 할 수 있으면 다음 함수 호출하고 count 값 받지 않아도 값이 어떻게 변했나 보면 된다.
      * 함수는 찾아낸 node만 반환하면 된다.
-     *
+     * <p>
      * 객체 / 배열은 stack에 pointer만 저장하기에 그것을 이용하는것.
      * count를 객체 안에 넣어 객체 주소를 전달하면 된다.
      */
 
-    static class Reference{
+    static class Reference {
         public int count = 0;
     }
+
     private static Node kthToLast_3(Node n, int k, Reference r) {
         if (n == null) {
             return null;
@@ -205,7 +206,7 @@ class SinglyLinkedListVer2 {
     /**
      * LinkedList에 있는 노드들을 x 값을 기준으로 값이 작은것들은 왼쪽, 큰것들은 오른쪽으로 나누시오.
      * (단, x는 오른쪽 파트 어디에 놓아도 상관 없다)
-     
+     * <p>
      * // first와 next의 관계를 모르겠다.. 그림그리니 이해가 된다..
      */
     private static Node partition(Node firstNode, int x) {
@@ -225,11 +226,11 @@ class SinglyLinkedListVer2 {
                     s1 = firstNode;
                     e1 = firstNode;
                 } else {
-                    System.out.println("1 e1.data : "+e1.data + " n.data : " +firstNode.data);
+                    System.out.println("1 e1.data : " + e1.data + " n.data : " + firstNode.data);
                     e1.next = firstNode; // e1의 다음 주소값으로 n을 갖게 하고
-                    System.out.println("2 e1.data : "+e1.data + " n.data : " +firstNode.data);
+                    System.out.println("2 e1.data : " + e1.data + " n.data : " + firstNode.data);
                     e1 = firstNode; // e1도 n 노드의 위치로 이동한다
-                    System.out.println("3 e1.data : "+e1.data + " n.data : " +firstNode.data);
+                    System.out.println("3 e1.data : " + e1.data + " n.data : " + firstNode.data);
                /*     e1.next = firstNode;    // e1의 처음 다음 주소값을 해당 노드로 설정
                     e1 = firstNode;         // 그리고 e1또한 다음 주소값으로 이동*/
                 }
@@ -238,11 +239,11 @@ class SinglyLinkedListVer2 {
                     s2 = firstNode;
                     e2 = firstNode;
                 } else {
-                    System.out.println("1 e2.data : "+e2.data + " n.data : " +firstNode.data);
+                    System.out.println("1 e2.data : " + e2.data + " n.data : " + firstNode.data);
                     e2.next = firstNode; // e2의 다음 주소값으로 n을 갖게 하고
-                    System.out.println("2 e2.data : "+e2.data + " n.data : " +firstNode.data);
+                    System.out.println("2 e2.data : " + e2.data + " n.data : " + firstNode.data);
                     e2 = firstNode; // e2도 n 노드의 위치로 이동한다
-                    System.out.println("3 e2.data : "+e2.data + " n.data : " +firstNode.data);
+                    System.out.println("3 e2.data : " + e2.data + " n.data : " + firstNode.data);
                   /*  e2.next = firstNode;
                     e2 = firstNode;*/
                 }
@@ -260,31 +261,55 @@ class SinglyLinkedListVer2 {
         /**
          *  처음 내가 시도한 방법
          *  부족한점 : e2 포인터가 있으면, 어떻게 그 다음 노드를 가리키게 하지?를 해결 못함. (그림을 그리지 못함. stack과 heap의 관계)
-        while (first != null) { //돈다
+         while (first != null) { //돈다
 
-            first = first.next;
-            if (first.data >= x) {
-                if (s2 == null) {
-                    s2 = first;
-                    e2 = first;
-                }
-                e2.next = first;
-                e2 = first;
-                e2 = first;
-                s2.next = e2;
+         first = first.next;
+         if (first.data >= x) {
+         if (s2 == null) {
+         s2 = first;
+         e2 = first;
+         }
+         e2.next = first;
+         e2 = first;
+         e2 = first;
+         s2.next = e2;
 
-            }else {
-                if (s1 == null) {
-                    s1 = first;
-                }
-                s2 = first;
-            }
-            first = first.next;
-        }*/
+         }else {
+         if (s1 == null) {
+         s1 = first;
+         }
+         s2 = first;
+         }
+         first = first.next;
+         }*/
         // 붙히기
     }
 
 
+    private static Node partition_2(Node firstNode, int x) {
+        // pointer 두개 선언
+        Node head = firstNode;
+        Node tail = firstNode;
+
+        while (firstNode != null) {
+            Node nextNode = firstNode.next; // node 주소 가지고 있음.
+            firstNode.next = null;
+
+            if (firstNode.data < x) {
+                firstNode.next = head;
+                head = firstNode;
+
+            } else {
+                tail.next = firstNode;
+                tail = firstNode;
+            }
+
+            firstNode = nextNode;
+        }
+//        tail.next = null;
+        return head;
+
+    }
 
     public static void main(String[] args) {
         SinglyLinkedListVer2 ll = new SinglyLinkedListVer2();
@@ -306,7 +331,7 @@ class SinglyLinkedListVer2 {
         System.out.println(found.data);*/
 
 
-        Node node = partition(ll.get(1), 5);
+        Node node = partition_2(ll.get(1), 5);
         System.out.println("=================");
         while (node.next != null) {
             System.out.print(node.data + " -> ");
