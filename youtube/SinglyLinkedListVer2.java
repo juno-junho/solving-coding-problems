@@ -308,9 +308,38 @@ class SinglyLinkedListVer2 {
         }
 //        tail.next = null;
         return head;
-
     }
 
+
+    /**
+     * 어떤 숫자를 자리수 별로 한개씩 LinkedList에 담았다.
+     * 1의 자리가 header에 오도록 거꾸로 담았을 때,
+     * 이런 LinkedList 두개를 받아 합산하고 같은 식으로 LinkedList에 담아 반환하여라
+     */
+    private static Node sumLists(Node l1, Node l2, int carry) {
+        if (l1 == null && l2 == null && carry == 0) {
+            return null;
+        }
+        Node result = new Node();
+        int value = carry;
+
+        if (l1 != null) {
+            value += l1.data;
+        }
+
+        if (l2 != null) {
+            value += l2.data;
+        }
+        result.data = value % 10;
+
+        if (l1 != null || l2 != null) {
+            Node next = sumLists(l1 == null ? null : l1.next,
+                    l2 == null ? null : l2.next,
+                    value >= 10 ? 1 : 0);
+            result.next = next;
+        }
+        return result;
+    }
     public static void main(String[] args) {
         SinglyLinkedListVer2 ll = new SinglyLinkedListVer2();
 
