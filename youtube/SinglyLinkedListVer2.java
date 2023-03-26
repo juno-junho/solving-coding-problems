@@ -27,6 +27,19 @@ class SinglyLinkedListVer2 {
         head.next = end;
     }
 
+    Node get(int index) {
+        Node head = header;
+        int count = 0;
+        while (head.next != null) {
+            head = head.next;
+            count++;
+            if (index == count) {
+                return head;
+            }
+        }
+        return null;
+    }
+
     void remove(int data) {
         Node head = header;
         while (head.next != null) {
@@ -61,7 +74,7 @@ class SinglyLinkedListVer2 {
             while (r.next != null) {
                 if (n.data == r.next.data) {
 //                    remove(r.next.data);
-                    r.next = r.next.next;
+                    r.next = r.next.next; // Node를 삭제하는 것.
                 } else {
                     r = r.next; // 다음 노드 주소값을 복사하는 것.
                 }
@@ -189,24 +202,120 @@ class SinglyLinkedListVer2 {
         return true;
     }
 
+    /**
+     * LinkedList에 있는 노드들을 x 값을 기준으로 값이 작은것들은 왼쪽, 큰것들은 오른쪽으로 나누시오.
+     * (단, x는 오른쪽 파트 어디에 놓아도 상관 없다)
+     
+     * // first와 next의 관계를 모르겠다.. 그림그리니 이해가 된다..
+     */
+    private static Node partition(Node firstNode, int x) {
+        // 4개의 포인터 선언 (주소값을 갖는 포인터)
+        Node s1 = null;
+        Node e1 = null;
+        Node s2 = null;
+        Node e2 = null;
+
+        while (firstNode != null) { // 마지막 노드까지 돈다
+            // 새로운 노드 추가 (따로 노드 하나씩 떼주는 작업) - node간 연관관계를 없애 주는게 필요!
+            Node next = firstNode.next;
+            firstNode.next = null;
+
+            if (firstNode.data < x) {   // 첫째 줄에 붙힌다.
+                if (s1 == null) {   // 처음
+                    s1 = firstNode;
+                    e1 = firstNode;
+                } else {
+                    System.out.println("1 e1.data : "+e1.data + " n.data : " +firstNode.data);
+                    e1.next = firstNode; // e1의 다음 주소값으로 n을 갖게 하고
+                    System.out.println("2 e1.data : "+e1.data + " n.data : " +firstNode.data);
+                    e1 = firstNode; // e1도 n 노드의 위치로 이동한다
+                    System.out.println("3 e1.data : "+e1.data + " n.data : " +firstNode.data);
+               /*     e1.next = firstNode;    // e1의 처음 다음 주소값을 해당 노드로 설정
+                    e1 = firstNode;         // 그리고 e1또한 다음 주소값으로 이동*/
+                }
+            } else {    //  둘째 줄에 붙힌다.
+                if (s2 == null) {   // 처음
+                    s2 = firstNode;
+                    e2 = firstNode;
+                } else {
+                    System.out.println("1 e2.data : "+e2.data + " n.data : " +firstNode.data);
+                    e2.next = firstNode; // e2의 다음 주소값으로 n을 갖게 하고
+                    System.out.println("2 e2.data : "+e2.data + " n.data : " +firstNode.data);
+                    e2 = firstNode; // e2도 n 노드의 위치로 이동한다
+                    System.out.println("3 e2.data : "+e2.data + " n.data : " +firstNode.data);
+                  /*  e2.next = firstNode;
+                    e2 = firstNode;*/
+                }
+            }
+//            first = first.next;
+            firstNode = next;
+        }
+        // 두 라인 붙히기
+        if (s1 == null) {   // s1이 없을 경우
+            return s2;
+        }
+        e1.next = s2;
+        return s1;
+
+        /**
+         *  처음 내가 시도한 방법
+         *  부족한점 : e2 포인터가 있으면, 어떻게 그 다음 노드를 가리키게 하지?를 해결 못함. (그림을 그리지 못함. stack과 heap의 관계)
+        while (first != null) { //돈다
+
+            first = first.next;
+            if (first.data >= x) {
+                if (s2 == null) {
+                    s2 = first;
+                    e2 = first;
+                }
+                e2.next = first;
+                e2 = first;
+                e2 = first;
+                s2.next = e2;
+
+            }else {
+                if (s1 == null) {
+                    s1 = first;
+                }
+                s2 = first;
+            }
+            first = first.next;
+        }*/
+        // 붙히기
+    }
+
+
+
     public static void main(String[] args) {
         SinglyLinkedListVer2 ll = new SinglyLinkedListVer2();
 
+        ll.append(7);
         ll.append(2);
-        ll.append(3);
-        ll.append(2);
+        ll.append(8);
         ll.append(5);
         ll.append(3);
-        ll.append(2);
+        ll.append(4);
         ll.print();
 
 //        ll.remove(1);
 //        ll.removeDupsUsingBuffer();
-        int k = 0;
+//        int k = 0;
 //        Reference reference = new Reference();
-        Node found = kthToLast_4(ll.header, k);
+/*        Node found = kthToLast_4(ll.header, k);
         assert found != null;
-        System.out.println(found.data);
+        System.out.println(found.data);*/
+
+
+        Node node = partition(ll.get(1), 5);
+        System.out.println("=================");
+        while (node.next != null) {
+            System.out.print(node.data + " -> ");
+            node = node.next;
+        }
+        System.out.println(node.data);
+        System.out.println("=================");
         ll.print();
     }
+
+
 }
