@@ -11,6 +11,14 @@ class SinglyLinkedListVer2 {
     static class Node {
         int data;
         Node next = null;
+
+        Node(){
+
+        }
+
+        Node(int data) {
+            this.data = data;
+        }
     }
 
     public SinglyLinkedListVer2() {
@@ -340,6 +348,69 @@ class SinglyLinkedListVer2 {
         }
         return result;
     }
+
+    /**
+     * 거꾸로 담지 않았을 경우
+     */
+     static class Storage{
+        int carry = 0;
+        Node result = null;
+    }
+
+    private static int getListLength(Node l) {
+        int total = 0;
+        while (l != null) {
+            total++;
+            l = l.next;
+        }
+        return total;
+    }
+
+    private static Node insertBefore(Node node, int data) {
+        Node before = new Node(data);
+        if (node != null) {
+            before.next = node; // 이렇게 되면 중간에 삽입은 못하지 않나?
+        }
+        return before;
+    }
+
+    // 왼쪽에 0으로 채워주는 함수
+    private static Node LPadList(Node l, int length) {
+        Node head = l;
+        for (int i = 0; i < length; i++) {
+            head = insertBefore(head, 0);
+        }
+        return head;
+    }
+
+    private static Node sumLists(Node l1, Node l2) {
+        int len1 = getListLength(l1);
+        int len2 = getListLength(l2);
+        if (len1 < len2) {
+            l1 = LPadList(l2, len2 - len1);
+        } else {
+            l2 = LPadList(l1, len1 - len2);
+        }
+
+        Storage storage = addLists(l1, l2);
+        if (storage.carry != 0) {
+            storage.result = insertBefore(storage.result, storage.carry);
+        }
+        return storage.result;
+    }
+
+    private static Storage addLists(Node l1, Node l2) {
+        if (l1 == null && l2 == null) {
+            return new Storage();
+        }
+        Storage storage = addLists(l1.next, l2.next);
+        int value = storage.carry + l1.data + l2.data;
+        int data = value % 10;
+        storage.result = insertBefore(storage.result, data);
+        storage.carry = value / 10;
+        return storage;
+    }
+
     public static void main(String[] args) {
         SinglyLinkedListVer2 ll = new SinglyLinkedListVer2();
 
@@ -370,6 +441,4 @@ class SinglyLinkedListVer2 {
         System.out.println("=================");
         ll.print();
     }
-
-
 }
