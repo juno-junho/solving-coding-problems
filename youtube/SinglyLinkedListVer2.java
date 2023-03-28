@@ -19,6 +19,17 @@ class SinglyLinkedListVer2 {
         Node(int data) {
             this.data = data;
         }
+
+        public Node get(int index) {
+            int total = 0;
+            while (this.next != null) {
+                total++;
+                if (index == total) {
+                    return this.next;
+                }
+            }
+            return null;
+        }
     }
 
     public SinglyLinkedListVer2() {
@@ -351,6 +362,8 @@ class SinglyLinkedListVer2 {
 
     /**
      * 거꾸로 담지 않았을 경우
+     * -- 내가 직접 다시 짜보기
+     * 핵심 : 재귀로 넘길때 넘겨야 하는 값이 2개 이상이 된다면, 객체로 감싸서 객체를 넘기기.
      */
      static class Storage{
         int carry = 0;
@@ -411,6 +424,58 @@ class SinglyLinkedListVer2 {
         return storage;
     }
 
+    /**
+     * LinkedList 교차점 찾기
+     */
+    private static Node getIntersection(Node l1, Node l2) {
+        int len1 = getListLength(l1);
+        int len2 = getListLength(l2);
+
+        // 길이 맞춰준다.
+        if (len1 > len2) {
+            l1 = l1.get(len1 - len2);
+        } else if (len1 < len2) {
+            l2 = l2.get(len2 - len1);
+        }
+
+        while (l1 != null && l2 != null) {
+            if (l1 == l2) {
+                return l1;
+            }
+            l1 = l1.next;
+            l2 = l2.next;
+        }
+        return null;
+    }
+
+    /**
+     * LinkedList 루프 찾기
+     */
+    private static Node findLoop(Node header) {
+        Node fast = header;
+        Node slow = header;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (fast == slow) {
+                break;
+            }
+        }
+
+        // loop가 없으면 종료
+        if (fast == null || fast.next == null) {
+            return null;
+        }
+
+        //  거북이를 제일 처음 노드로
+        slow = header;
+        while (fast != slow) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return fast;
+    }
     public static void main(String[] args) {
         SinglyLinkedListVer2 ll = new SinglyLinkedListVer2();
 
