@@ -1,7 +1,7 @@
 public class ArrayChapter {
     /**
      * java - array가 fixed되어있음.
-     * ArrayList - 추가 하는대로 size가 늘어남.
+     * ArrayListEx - 추가 하는대로 size가 늘어남.
      * 검색시간 : O(1) - 배열 다 차면 2배로 늘려주기 때문에. 검색할때는 여전히 고정된 배열에서 검색.
      * doubling 시간 : O(N)
      * 값 끝에 추가하는것 : O(1) but doubling 할때는 O(N)
@@ -17,7 +17,7 @@ public class ArrayChapter {
      */
 
     public static void main(String[] args) {
-        ArrayList arrayList = new ArrayList();
+        ArrayListEx arrayList = new ArrayListEx();
         arrayList.add("0");
         arrayList.add("1");
         arrayList.add("2");
@@ -58,12 +58,12 @@ public class ArrayChapter {
 
     }
 }
-class ArrayList{
+class ArrayListEx{
     private Object[] data;
     private int size;   // 크기
     private int index; // 다음 데이터 추가 위치 기억
 
-    public ArrayList() {
+    public ArrayListEx() {
         this.size = 1;
         this.data = new Object[this.size];
         this.index = 0;
