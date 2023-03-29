@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * queue 구현
+ */
 public class Q_10845 {
 
      static class Queue {
