@@ -24,7 +24,4 @@ public class QueueUsingArray {
     int back() {
         return dat[tail - 1];
     }
-
-
-
 }
