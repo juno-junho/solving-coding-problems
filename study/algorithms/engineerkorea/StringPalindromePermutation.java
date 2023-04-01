@@ -26,7 +26,7 @@ class StringPalindromePermutation {
         return checkMaxOneOdd(table);
     }
 
-    private static boolean checkMaxOneOdd(int[] table) {
+    public static boolean checkMaxOneOdd(int[] table) {
         boolean foundOdd = false;
         for (int count : table) {
             if (count % 2 == 1) {
