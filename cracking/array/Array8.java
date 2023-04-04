@@ -26,7 +26,7 @@ public class Array8 {
      *
      */
     // TIME: O(MN)
-    // SPACE: O(MN)
+    // SPACE: O(M+N)
     static void setZeros(int[][] matrix) {
 
         List<int[]> coordinates = new ArrayList<>();
@@ -51,7 +51,7 @@ public class Array8 {
         }
     }
     // TIME: O(MN)
-    // SPACE: O(N)
+    // SPACE: O(M+N)
     static void setZeros_sol(int[][] matrix) {
         boolean[] row = new boolean[matrix.length];
         boolean[] column = new boolean[matrix[0].length];
