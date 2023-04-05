@@ -30,7 +30,7 @@ public class LinkedList6 {
      * runner 사용.. 끝에서 부터 재귀로 값반환
      * 머리가 안돌아간다..
      * <p>
-     * Stack 사용
+     *  - Stack 사용
      * 길이가 odd, even으로 나눈다.
      * odd -> middle 신경 안써도 된다.
      * even -> 대칭
@@ -54,7 +54,7 @@ public class LinkedList6 {
         }
         // 2 - 3 - 4 - 4 - 3 - 2 일때 처음 4가 slow 위치
         // 1 - 2 - 3 - 2 - 1 일때 처음 2가 slow 위치
-        while (head != slow) {
+        while (head != slow) {  // 이거 위에서 while 돌면서 같이 처리해 줄 수 있었다.  head를 안쓰고 slow를 쓰면됨.
             stack.push(head.next);
             head = head.next;
         }
@@ -73,7 +73,10 @@ public class LinkedList6 {
         return true;
     }
 
-    static boolean isPalindrome_sol1(Node head) {
+    /**
+     * sol 2. 순환적 접근법.
+     */
+    static boolean isPalindrome_sol2(Node head) {
         if (head == null) {
             return false;
         }
@@ -100,5 +103,89 @@ public class LinkedList6 {
             stack.pop();
         }
         return true;
+    }
+
+    /**
+     * sol 1. 뒤집어서 비교한다.
+     * 뒤집어 비교할 ㄸ는 리스트의 절반만 비교하면 된다.
+     */
+    static boolean isPalindrome_sol1(Node head) {
+
+        Node reversed = reverseAndClone(head);
+        return isEqual(head, reversed);
+
+    }
+
+    private static Node reverseAndClone(Node head) {
+        Node header = null;
+        while (head != null) {
+            Node node = new Node(head.data);    // 복사
+            node.next = header;
+            header = node;
+            head = head.next;
+        }
+        return header;
+    }
+
+    private static boolean isEqual(Node one, Node two) {
+        while (one != null & two != null) {
+            if (one.data != two.data) {
+                return false;
+            }
+            one = one.next;
+            two = two.next;
+        }
+        return one == null && two == null;
+    }
+
+    /**
+     * sol 3. 재귀적 접근법
+     */
+    static class Result {
+        Node node;
+        boolean result;
+
+        public Result(Node head, boolean result) {
+            this.node = head;
+            this.result = result;
+        }
+    }
+    static boolean isPalindrome_sol3(Node head) {
+        int length = lengthOfList(head);
+        Result p = isPalindromeRecurse(head, length);
+        return p.result;
+    }
+
+    static Result isPalindromeRecurse(Node head, int length) {
+        if (head == null || length <= 0) {  // 노드 개수 even
+            return new Result(head, true);
+        } else if (length == 1) {   // 노드 개수 odd
+            return new Result(head.next, true);
+        }
+
+        // 리스트 재귀적으로 호출
+        Result res = isPalindromeRecurse(head.next, length - 2);
+
+        // 아래 호출 결과 회문이 아니라는 사실이 밝혀지면, 그 결과값 반환
+        if (!res.result || res.node == null) {
+            return res;
+        }
+
+        // 두 노드 값이 같은지 확인
+        res.result = (head.data == res.node.data);
+
+        // 그 다음 비교할 노드 반환
+        res.node = res.node.next;
+
+        return res;
+    }
+
+    static int lengthOfList(Node node) {
+        int size = 0;
+        while (node != null) {
+            size++;
+            node = node.next;
+        }
+        return size;
     }
 }
