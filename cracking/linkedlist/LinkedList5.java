@@ -38,7 +38,7 @@ public class LinkedList5 {
         list2_1.next = list2_2;
         list2_2.next = list2_3;
         list2_3.next = list2_4;
-        Node node = sumLists_sol2(list1_1, list2_1);
+        Node node = sumLists_sol1(list1_1, list2_1);
         while (node.next != null) {
             System.out.print(node.data + " -> ");
             node = node.next;
