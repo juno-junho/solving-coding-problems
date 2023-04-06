@@ -4,6 +4,10 @@ import linkedlist.SinglyLinkedListSetUp.Node;
 
 import java.util.Stack;
 
+/**
+ * solution 코드 다시 학습하기.
+ * 특히 재귀 부분 이해하기.
+ */
 public class LinkedList6 {
     /**
      * implement a function to check if a linked list is a palindrome

@@ -66,6 +66,9 @@ public class LinkedList7 {
      * 2. 긴 list를 짧은 list 처럼 앞에서 잘라 길이 맞춘다.
      * 3. 길이만큼 포인터로 돌면서 노드 주소가 같은 것
      */
+
+    // TIME : O(N + M)
+    // SPACE : O(1)
     static Node findIntersection(Node list1, Node list2) {
         if (list1 == null || list2 == null) {
             throw new IllegalArgumentException();
@@ -107,6 +110,8 @@ public class LinkedList7 {
         return null;
     }
 
+    // TIME : O(N+M)
+    // SPACE : O(N + M)  최대
     static Node findIntersection_2(Node list1, Node list2) {
         if (list1 == null || list2 == null) {
             throw new IllegalArgumentException();
@@ -169,4 +174,103 @@ public class LinkedList7 {
         }
         return null;
     }
+
+    /**
+     * sol 1 ) 내가 생각한 풀이
+     * 1. 길이 계산한다.
+     * 2. 포인터를 다시 앞으로 보낸다.
+     * 3. 길이 차이만큼 긴 리스트의 포인터를 옮긴다.
+     * 4. null까지 두 list 돌면서 node 같은지 확인
+     * <p>
+     * 유사한 답지 풀이 ) - 추가한 작업 : 마지막 노드 비교
+     * 1. 각 노드 돌면서 길이와 마지막 노드 구한다.
+     * 2. 마지막 노드 비교 -> 참조값 다르면 교집합 없음 반환
+     * 3. 위 풀이와 동일.
+     * <p>
+     * sol 2 ) 수학적인 방법
+     * 1. 두 포인터를 설정한다. (각 리스트)
+     * 2. 두 포인터를 각각 한칸씩 옮겨 끝에 도착하면 반대편 리스트의 처음으로 리셋시킨다.
+     * 3. 계속반복하다보면 언젠간 intersecting node에서 만난다.
+     */
+
+    static class Result {
+        Node tail;
+        int size;
+
+        Result(Node tail, int size) {
+            this.tail = tail;
+            this.size = size;
+        }
+    }
+
+    // TIME : O(N+M)
+    // SPACE: O(1)
+    static Node findIntersection_sol1(Node list1, Node list2) {
+        if (list1 == null | list2 == null) {
+            return null;
+        }
+        // 마지막 노드, size 구한다
+        Result result1 = getTailAndSize(list1);
+        Result result2 = getTailAndSize(list2);
+
+        // 마지막 노드가 다르면 교집합 없다.
+        if (result1.tail != result2.tail) {
+            return null;
+        }
+
+        Node shorter = result1.size < result2.size ? list1 : list2;
+        Node longer = result1.size < result2.size ? list2 : list1;
+
+        // 차이만큼 옮기기
+        longer = getKthNode(longer, Math.abs(result1.size - result2.size));
+
+        while (shorter != longer) {
+            shorter = shorter.next;
+            longer = longer.next;
+        }
+        return longer;
+    }
+
+    private static Node getKthNode(Node head, int k) {
+        Node current = head;
+        while (k > 0 && current != null) {
+            current = current.next;
+            k--;
+        }
+        return current;
+    }
+
+    private static Result getTailAndSize(Node list) {
+        if (list == null) {
+            return null;
+        }
+        int size = 1;
+        Node current = list;
+        while (current.next != null) {
+            size++;
+            current = current.next;
+        }
+        return new Result(current, size);
+    }
+
+
+    // TIME : O(N + M) -> O(N) where N is the length of the longer list
+    // SPACE : O(1)
+    static Node findIntersection_sol2(Node list1, Node list2) {
+        Node firstPointer = list1;
+        Node secondPointer = list2;
+
+        while (firstPointer != secondPointer) {
+            if (firstPointer == null) {
+                firstPointer = list2;
+            }
+            if (secondPointer == null) {
+                secondPointer = list1;
+            }
+            firstPointer = firstPointer.next;
+            secondPointer = secondPointer.next;
+        }
+        return firstPointer;
+    }
+
 }
