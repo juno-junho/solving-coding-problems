@@ -7,6 +7,10 @@ import java.util.Stack;
 /**
  * solution 코드 다시 학습하기.
  * 특히 재귀 부분 이해하기.
+
+ * Stack chapter - stack이 유용한 경우 참고
+ * - stack은 재귀 알고리즘을 iterative한 형태로 바꿔서 구현 할 수 있다.
+ * 이 문제가 그 예시가 될 수 있다.
  */
 public class LinkedList6 {
     /**
