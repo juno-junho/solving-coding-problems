@@ -41,16 +41,31 @@ public class StackImpl<T> {
         return top.data;
     }
 
+    public int min() {
+        // 솔직히 그냥 LinkedList head 주고 최솟값 찾으란거랑 똑같음..
+        // TIME COMPLEXITY : O(N)
+        Node runner = top;
+        int min = (int) top.data;
+        while (runner != null) {
+            min = Math.min((Integer) runner.data, min);
+            runner = runner.next;
+        }
+        return min;
+    }
     public boolean isEmpty() {
         return top == null;
     }
 
     public static void main(String[] args) {
         StackImpl<Integer> s = new StackImpl<>();
+        s.push(-1);
+        s.push(88);
         s.push(1);
         s.push(2);
         s.push(3);
         s.push(4);
+
+        System.out.println("Min value = " + s.min());
         System.out.println(s.pop());
         System.out.println(s.pop());
         System.out.println(s.peek());
