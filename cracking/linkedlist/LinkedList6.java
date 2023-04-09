@@ -3,7 +3,7 @@ package linkedlist;
 import linkedlist.SinglyLinkedListSetUp.Node;
 
 import java.util.Stack;
-
+// TODO: 재귀 부분 이해하기. STACK와 재귀의 변환관계 이해
 /**
  * solution 코드 다시 학습하기.
  * 특히 재귀 부분 이해하기.

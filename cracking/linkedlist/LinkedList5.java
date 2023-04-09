@@ -2,6 +2,8 @@ package linkedlist;
 
 import linkedlist.LinkedList7.Node;
 
+// TODO : 책의 SOL2 재귀풀이 이해하기.
+
 /**
  * sol2 : 책풀이 - 재귀 참고
  */

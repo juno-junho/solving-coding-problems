@@ -2,6 +2,8 @@ package linkedlist;
 
 import linkedlist.LinkedList7.Node;
 
+// TODO: 알고리즘 이해하기.
+//  CIRCLE안에서 만나는거 까진 OK. BUT 왜 제자리로 거북이 옮기고 만나는 지점이 시작점인지. 이해하기.
 public class LinkedList8 {
     /**
      * 풀이 실패.
