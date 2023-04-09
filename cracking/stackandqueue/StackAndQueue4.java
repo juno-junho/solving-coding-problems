@@ -5,9 +5,11 @@ import java.util.Stack;
 public class StackAndQueue4<T> {
     /**
      * 스택 두개로 하나의 queue를 만들어라
-     *
+
      * 내풀이 )
      * 근데 단점이 add 하고 난 후 peek, remove 호출 할 수 있지만, 그 이후 add가 안된다.
+     * add가 안되는 것이 아니라
+     * old stack에 비어 있을때만 부어야한다.
      */
 
     private final Stack<T> newStack;
@@ -46,14 +48,17 @@ public class StackAndQueue4<T> {
         queue.add(1);
         queue.add(2);
         queue.add(3);
-        System.out.println(queue.remove());
-        System.out.println(queue.remove());
+        System.out.println(queue.peek());
+
         queue.add(4);
+        System.out.println(queue.peek());
+
         queue.add(5);
-        System.out.println(queue.remove());
+        System.out.println(queue.peek());
+        /*System.out.println(queue.remove());
         System.out.println(queue.peek());
         System.out.println(queue.remove());
-        System.out.println(queue.remove());
+        System.out.println(queue.remove());*/
     }
 
 }
