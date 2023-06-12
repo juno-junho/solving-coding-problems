@@ -14,7 +14,7 @@ public class B2217 {
      * 모든 로프를 사용해야 할 필요는 없으며, 임의로 몇 개의 로프를 골라서 사용해도 된다.
      */
 
-    // O(N)
+    // O(NlogN)
     private static int solution(int n, int[] maxWeight) {
         Arrays.sort(maxWeight);
         int maxTotalWeight = Integer.MIN_VALUE;

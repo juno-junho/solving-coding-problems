@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class B1026 {
-    // O(N)
+    // O(NlogN)
     private static int soultion(int n, Integer[] a, Integer[] b) {
         Arrays.sort(b);
         Arrays.sort(a, Collections.reverseOrder());
